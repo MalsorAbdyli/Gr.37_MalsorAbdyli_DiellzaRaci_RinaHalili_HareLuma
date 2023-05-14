@@ -57,6 +57,29 @@
       <div id="output" style="width: 500px; height: 50px"></div>
     </div>
     <script defer>
+
+ const inputField = document.getElementById("input");
+      const keyField = document.getElementById("key");
+      const outputField = document.getElementById("output");
+      const encryptBtn = document.getElementById("encryptBtn");
+      const decryptBtn = document.getElementById("decryptBtn");
+
+            encryptBtn.addEventListener("click", () => {
+        const input = inputField.value;
+        const key = keyField.value;
+        const encodedText = desEncrypt(input, key);
+        outputField.textContent = "Teksti i enkriptuar: " + encodedText;
+      });
+
+
+            decryptBtn.addEventListener("click", () => {
+        const input = inputField.value;
+        const key = keyField.value;
+        const decodedText = desDecrypt(input, key);
+        outputField.textContent = "Teksti i dekriptuar: " + decodedText;
+      });
+
+
 	</script>
 
 </body>
