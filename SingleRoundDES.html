@@ -79,6 +79,20 @@
         outputField.textContent = "Teksti i dekriptuar: " + decodedText;
       });
 
+      function desEncrypt(text, key) {
+      
+      const textBytes = CryptoJS.enc.Utf8.parse(text);
+      const keyBytes = CryptoJS.enc.Utf8.parse(key);
+      
+      
+      const encrypted = CryptoJS.DES.encrypt(textBytes, keyBytes, {
+        mode: CryptoJS.mode.ECB, // Electronic Codebook mode
+        padding: CryptoJS.pad.Pkcs7 // PKCS7 padding
+      });
+      
+      
+      return encrypted.toString();
+    }
 
 	</script>
 
