@@ -58,6 +58,7 @@
     </div>
     <script defer>
 
+//Pjesa e enkriptimit dhe dekriptimit duke marre textin dhe celesin nga shfrytezuesi
  const inputField = document.getElementById("input");
       const keyField = document.getElementById("key");
       const outputField = document.getElementById("output");
@@ -79,27 +80,31 @@
         outputField.textContent = "Teksti i dekriptuar: " + decodedText;
       });
 
+       // Funksioni qe performon enkriptimin DES
       function desEncrypt(text, key) {
       
+      // Konvertimi i tekstit dhe celsit ne objekte WordArray 
       const textBytes = CryptoJS.enc.Utf8.parse(text);
       const keyBytes = CryptoJS.enc.Utf8.parse(key);
       
-      
+      // DES Enkriptimi
       const encrypted = CryptoJS.DES.encrypt(textBytes, keyBytes, {
         mode: CryptoJS.mode.ECB, // Electronic Codebook mode
         padding: CryptoJS.pad.Pkcs7 // PKCS7 padding
       });
       
-      
+      // Kthimi i tekstit te enkriptuar si Base64-encoded string
       return encrypted.toString();
     }
 
-      
+    // Funksioni qe performon dekriptimin DES
     function desDecrypt(encryptedText, key) {
       
+      // Kthimi i tekstit te enkriptuar dhe celsit ne objekte WordArray
       const encryptedBytes = CryptoJS.enc.Base64.parse(encryptedText);
       const keyBytes = CryptoJS.enc.Utf8.parse(key);
       
+      // DES Dekriptimi
       const decrypted = CryptoJS.DES.decrypt({
         ciphertext: encryptedBytes
       }, keyBytes, {
@@ -107,8 +112,10 @@
         padding: CryptoJS.pad.Pkcs7
       });
       
+      // Konvertimi i rezultatit te dekriptuar ne tekst
       const decryptedText = decrypted.toString(CryptoJS.enc.Utf8);
       
+      // Kthimi i tekstit te enkriptuar
       return decryptedText;
 	  
 	  }
