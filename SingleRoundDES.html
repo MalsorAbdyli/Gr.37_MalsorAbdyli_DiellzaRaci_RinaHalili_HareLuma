@@ -4,7 +4,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <meta charset="UTF-8">
     <title>DES Encryption/Decryption</title>
-   
+    <style>
+        /* Stili CSS per elementet*/
+        label {
+          display: block;
+          margin-top: 10px;
+        }
+        input[type="text"] {
+          width: 300px;
+          padding: 5px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        button {
+          margin-top: 10px;
+          padding: 8px 16px;
+          font-size: 16px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #3e8e41;
+        }
+        #output {
+          margin-top: 10px;
+          padding: 5px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-align: center;
+        }
+      </style>
   </head>
   <body>
 
@@ -14,6 +48,8 @@
 
       <label for="key">Çelësi DES:</label>
       <input type="text" id="key" />
+
+      <br>
 
       <button id="encryptBtn">Enkripto</button>
       <button id="decryptBtn">Dekripto</button>
