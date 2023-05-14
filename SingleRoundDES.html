@@ -51,10 +51,10 @@
 
       <br>
 
-      <button id="encryptBtn">Enkripto</button>
-      <button id="decryptBtn">Dekripto</button>
+      <button id="encryptBtn" style="width: 154px">Enkripto</button>
+      <button id="decryptBtn" style="width: 154px">Dekripto</button>
 
-      <div id="output" style="width: 500px; height: 50px"></div>
+      <div id="output" style="width: 300px; height: 50px"></div>
     </div>
     <script defer>
 
@@ -93,6 +93,25 @@
       
       return encrypted.toString();
     }
+
+      
+    function desDecrypt(encryptedText, key) {
+      
+      const encryptedBytes = CryptoJS.enc.Base64.parse(encryptedText);
+      const keyBytes = CryptoJS.enc.Utf8.parse(key);
+      
+      const decrypted = CryptoJS.DES.decrypt({
+        ciphertext: encryptedBytes
+      }, keyBytes, {
+        mode: CryptoJS.mode.ECB, 
+        padding: CryptoJS.pad.Pkcs7
+      });
+      
+      const decryptedText = decrypted.toString(CryptoJS.enc.Utf8);
+      
+      return decryptedText;
+	  
+	  }
 
 	</script>
 
